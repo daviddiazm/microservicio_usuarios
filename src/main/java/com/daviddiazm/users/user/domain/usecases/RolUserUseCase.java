@@ -1,8 +1,10 @@
 package com.daviddiazm.users.user.domain.usecases;
 
+import com.daviddiazm.users.user.domain.exceptions.NameAlreadyExistException;
 import com.daviddiazm.users.user.domain.models.RolUserModel;
 import com.daviddiazm.users.user.domain.ports.in.RolUserServicePort;
 import com.daviddiazm.users.user.domain.ports.out.RolUserPersistencePort;
+import com.daviddiazm.users.user.domain.utils.constants.RolUserConstants;
 
 public class RolUserUseCase implements RolUserServicePort {
 
@@ -14,8 +16,10 @@ public class RolUserUseCase implements RolUserServicePort {
 
     @Override
     public void saveRolUser(RolUserModel rolUserModel) {
-//        despues valido por ahora solo quiero que funcione el user
-//        rolUserPersistencePort.getRolByName(rolUserModel.getName());
+        RolUserModel rolExist = rolUserPersistencePort.getRolByName(rolUserModel.getName());
+        if(rolExist != null){
+            throw new NameAlreadyExistException(RolUserConstants.NAME_ALREADY_EXIST);
+        }
         rolUserPersistencePort.saveRolUser(rolUserModel);
     }
 }

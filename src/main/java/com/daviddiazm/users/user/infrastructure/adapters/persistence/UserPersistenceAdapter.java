@@ -2,12 +2,14 @@ package com.daviddiazm.users.user.infrastructure.adapters.persistence;
 
 import com.daviddiazm.users.user.domain.models.UserModel;
 import com.daviddiazm.users.user.domain.ports.out.UserPersistencePort;
+import com.daviddiazm.users.user.infrastructure.entities.UserEntity;
 import com.daviddiazm.users.user.infrastructure.mappers.UserEntityMapper;
 import com.daviddiazm.users.user.infrastructure.repositories.mysql.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -26,5 +28,15 @@ public class UserPersistenceAdapter implements UserPersistencePort {
     @Override
     public void saveUser(UserModel userModel) {
         userRepository.save(userEntityMapper.modelToEntity(userModel));
+    }
+
+    @Override
+    public Optional<UserModel> getUserById(String id) {
+        Optional<UserEntity> user = userRepository.findById(id);
+        if (user.isEmpty()) {
+            return Optional.empty();
+        }
+        UserModel userModel = userEntityMapper.entityToModel(user.get());
+        return Optional.of(userModel);
     }
 }

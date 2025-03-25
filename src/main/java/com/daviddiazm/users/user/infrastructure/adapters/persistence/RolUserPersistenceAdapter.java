@@ -23,6 +23,7 @@ public class RolUserPersistenceAdapter implements RolUserPersistencePort {
 
     @Override
     public RolUserModel getRolByName(String name) {
-        return null;
+        return rolUserEntityMapper.entityToModel(rolUserRepository.getByName(name));
+
     }
 }
