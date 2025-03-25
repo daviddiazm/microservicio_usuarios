@@ -3,29 +3,31 @@ package com.daviddiazm.users.user.domain.models;
 import java.time.LocalDate;
 
 public class UserModel {
-    private Long id;
+    private String id;
     private String name;
     private String lastName;
+    private String phoneNumber;
     private LocalDate birthDay;
     private String email;
     private String password;
     private RolUserModel rolUserModel;
 
-    public UserModel(Long id, String name, String lastName, LocalDate birthDay, String email, String password, RolUserModel rolUserModel) {
+    public UserModel(String id, String name, String lastName, String phoneNumber, LocalDate birthDay, String email, String password, RolUserModel rolUserModel) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
         this.birthDay = birthDay;
         this.email = email;
         this.password = password;
         this.rolUserModel = rolUserModel;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -43,6 +45,14 @@ public class UserModel {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public LocalDate getBirthDay() {
@@ -75,18 +85,5 @@ public class UserModel {
 
     public void setRolUserModel(RolUserModel rolUserModel) {
         this.rolUserModel = rolUserModel;
-    }
-
-    @Override
-    public String toString() {
-        return "UserModel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthDay=" + birthDay +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", rolUserModel=" + rolUserModel +
-                '}';
     }
 }

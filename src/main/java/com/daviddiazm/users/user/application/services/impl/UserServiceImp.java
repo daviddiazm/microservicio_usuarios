@@ -21,6 +21,11 @@ public class UserServiceImp implements UserService {
 
     @Override
     public SaveUserResponse saveUser(SaveUserRequest saveUserRequest) {
+        System.out.println("lo que llega del request");
+        System.out.println(saveUserRequest);
+
+        System.out.println("el mapper app");
+        System.out.println(userDtoMapper.requestToModel(saveUserRequest));
         userServicePort.saveUser(userDtoMapper.requestToModel(saveUserRequest));
         return new SaveUserResponse(UserConstants.SAVE_CORRECTLY_MESSAGE, LocalDate.now());
     }

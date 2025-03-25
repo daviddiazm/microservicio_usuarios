@@ -1,6 +1,5 @@
 package com.daviddiazm.users.user.infrastructure.entities;
 
-import com.daviddiazm.users.user.domain.models.RolUserModel;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,10 +15,10 @@ import java.time.LocalDate;
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String name;
     private String lastName;
+    private String phoneNumber;
     private LocalDate birthDay;
     private String email;
     private String password;
