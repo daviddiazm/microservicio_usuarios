@@ -33,8 +33,8 @@ public class UserConstants {
     public static final String LAST_NAME_MIN_LENGHT = "The min length for last name needs most to be 3 caracters";
     public static final String LAST_NAME_MAX_LENGHT = "The max length for last name needs most to be 50 caracters";
 
-    public static final String PHONE_NUMBER_MIN_LENGHT = "The min length for last name needs most to be 10 caracters";
-    public static final String PHONE_NUMBER_MAX_LENGHT = "The max length for last name needs most to be 90 caracters";
+    public static final String PHONE_NUMBER_MIN_LENGHT = "The min length for phone number needs most to be 9 caracters";
+    public static final String PHONE_NUMBER_MAX_LENGHT = "The max length for phone number needs most to be 13 caracters";
     public static final String PHONE_NUMBER_INVALID = "phone number is numeric field whit plus symbol";
 
     public static final String EMAIL_MIN_LENGHT = "The min length for last name needs most to be 10 caracters";

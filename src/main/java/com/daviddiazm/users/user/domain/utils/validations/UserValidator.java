@@ -1,9 +1,6 @@
 package com.daviddiazm.users.user.domain.utils.validations;
 
-import com.daviddiazm.users.user.domain.exceptions.InvalidPhoneNumberException;
-import com.daviddiazm.users.user.domain.exceptions.LastNameMinException;
-import com.daviddiazm.users.user.domain.exceptions.NameMaxException;
-import com.daviddiazm.users.user.domain.exceptions.UnderAgeException;
+import com.daviddiazm.users.user.domain.exceptions.*;
 import com.daviddiazm.users.user.domain.utils.constants.UserConstants;
 
 import java.time.LocalDate;
@@ -14,11 +11,11 @@ public class UserValidator {
         if (name == null) {
             throw new IllegalArgumentException(UserConstants.FIELD_NAME_NULL_MESSAGE);
         }
+        if (name.isEmpty()) {
+            throw new NameMinException(UserConstants.NAME_MIN_LENGHT);
+        }
         if (name.length() > UserConstants.MAX_NAME_CARACTER_LENGTH) {
             throw new NameMaxException(UserConstants.NAME_MAX_LENGHT);
-        }
-        if (name.length() < UserConstants.MIN_NAME_CARACTER_LENGTH) {
-            throw new NameMaxException(UserConstants.NAME_MIN_LENGHT);
         }
     }
 
@@ -80,7 +77,7 @@ public class UserValidator {
             throw new NameMaxException(UserConstants.EMAIL_MAX_LENGHT);
         }
         if(!isValidEmail(email)) {
-            throw new InvalidPhoneNumberException(UserConstants.EMAIL_INVALID);
+            throw new InvalidEmialException(UserConstants.EMAIL_INVALID);
         }
     }
     private static boolean isValidEmail (String email) {

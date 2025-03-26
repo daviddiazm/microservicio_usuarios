@@ -12,7 +12,7 @@ public class UserFactory {
         String identification = "123455667";
         String name = "david";
         String lastName = "diaz montengro";
-        String phoneNumber = "+5731176726737";
+        String phoneNumber = "+5731176726";
         LocalDate date = LocalDate.of(2003, 4,18);
         String email = "david@email.com";
         String password = "password";
