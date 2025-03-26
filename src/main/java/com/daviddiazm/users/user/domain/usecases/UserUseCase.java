@@ -19,7 +19,7 @@ public class UserUseCase implements UserServicePort {
 
     @Override
     public void saveUser(UserModel userModel) {
-        Optional<UserModel> userExist = userPersistencePort.getUserById(userModel.getId());
+        Optional<UserModel> userExist = userPersistencePort.getUserByIdentification(userModel.getIdentification());
         if(userExist.isPresent()) {
             throw new UserAlreadyExistException(UserConstants.USER_ALREADY_EXIST);
         }

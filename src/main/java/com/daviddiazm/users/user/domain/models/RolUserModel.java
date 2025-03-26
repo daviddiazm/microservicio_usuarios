@@ -8,6 +8,9 @@ public class RolUserModel {
     private String description;
     private List<UserModel> users;
 
+    public RolUserModel() {
+    }
+
     public RolUserModel(Long id, String name, String description, List<UserModel> users) {
         this.id = id;
         this.name = name;

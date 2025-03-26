@@ -2,6 +2,7 @@ package com.daviddiazm.users.user.infrastructure.adapters.persistence;
 
 import com.daviddiazm.users.user.domain.models.RolUserModel;
 import com.daviddiazm.users.user.domain.ports.out.RolUserPersistencePort;
+import com.daviddiazm.users.user.infrastructure.entities.RolUserEntity;
 import com.daviddiazm.users.user.infrastructure.mappers.RolUserEntityMapper;
 import com.daviddiazm.users.user.infrastructure.repositories.mysql.RolUserRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,8 @@ public class RolUserPersistenceAdapter implements RolUserPersistencePort {
 
     @Override
     public void saveRolUser(RolUserModel rolUserModel) {
-        rolUserRepository.save(rolUserEntityMapper.modelToEntity(rolUserModel));
+        RolUserEntity rol = rolUserEntityMapper.modelToEntity(rolUserModel);
+        rolUserRepository.save(rol);
     }
 
     @Override

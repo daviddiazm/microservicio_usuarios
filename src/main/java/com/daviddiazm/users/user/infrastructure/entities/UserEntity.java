@@ -15,7 +15,9 @@ import java.time.LocalDate;
 public class UserEntity {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String identification;
     private String name;
     private String lastName;
     private String phoneNumber;

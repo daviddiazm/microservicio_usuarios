@@ -54,10 +54,10 @@ public class UserValidator {
             throw new IllegalArgumentException(UserConstants.FIELD_PHONE_NUMBER_NULL_MESSAGE);
         }
         if(phoneNumber.length() < UserConstants.MIN_PHONE_NUMBER_CARACTER_LENGTH) {
-            throw new LastNameMinException(UserConstants.LAST_NAME_MIN_LENGHT);
+            throw new LastNameMinException(UserConstants.PHONE_NUMBER_MIN_LENGHT);
         }
         if (phoneNumber.length() > UserConstants.MAX_PHONE_NUMBER_CARACTER_LENGTH) {
-            throw new NameMaxException(UserConstants.LAST_NAME_MAX_LENGHT);
+            throw new NameMaxException(UserConstants.PHONE_NUMBER_MAX_LENGHT);
         }
         if(!isValidPhoneNumber(phoneNumber)) {
             throw new InvalidPhoneNumberException(UserConstants.PHONE_NUMBER_INVALID);

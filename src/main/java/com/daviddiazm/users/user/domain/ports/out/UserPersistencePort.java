@@ -7,5 +7,5 @@ import java.util.Optional;
 public interface UserPersistencePort {
     String getPasswordHashed(String password);
     void saveUser (UserModel userModel);
-    Optional<UserModel> getUserById (String id);
+    Optional<UserModel> getUserByIdentification (String identification);
 }

@@ -3,7 +3,7 @@ package com.daviddiazm.users.user.application.dtos.requests;
 import java.time.LocalDate;
 
 public record SaveUserRequest(
-        String id,
+        String identification,
         String name,
         String lastName,
         String phoneNumber,

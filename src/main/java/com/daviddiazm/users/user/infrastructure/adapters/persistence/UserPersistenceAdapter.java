@@ -27,16 +27,19 @@ public class UserPersistenceAdapter implements UserPersistencePort {
 
     @Override
     public void saveUser(UserModel userModel) {
-        userRepository.save(userEntityMapper.modelToEntity(userModel));
+        UserEntity user = userEntityMapper.modelToEntity(userModel);
+        user.setId(null);
+        userRepository.save(user);
     }
 
     @Override
-    public Optional<UserModel> getUserById(String id) {
-        Optional<UserEntity> user = userRepository.findById(id);
-        if (user.isEmpty()) {
+    public Optional<UserModel> getUserByIdentification(String identification) {
+        UserEntity user = userRepository.findByIdentification(identification);
+        if (user == null) {
             return Optional.empty();
+        } else {
+            UserModel userModel = userEntityMapper.entityToModel(user);
+            return Optional.of(userModel);
         }
-        UserModel userModel = userEntityMapper.entityToModel(user.get());
-        return Optional.of(userModel);
     }
 }

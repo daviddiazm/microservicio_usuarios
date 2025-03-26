@@ -3,7 +3,9 @@ package com.daviddiazm.users.user.domain.models;
 import java.time.LocalDate;
 
 public class UserModel {
-    private String id;
+
+    private Long id;
+    private String identification;
     private String name;
     private String lastName;
     private String phoneNumber;
@@ -12,8 +14,12 @@ public class UserModel {
     private String password;
     private RolUserModel rolUserModel;
 
-    public UserModel(String id, String name, String lastName, String phoneNumber, LocalDate birthDay, String email, String password, RolUserModel rolUserModel) {
+    public UserModel() {
+    }
+
+    public UserModel(Long id, String identification, String name, String lastName, String phoneNumber, LocalDate birthDay, String email, String password, RolUserModel rolUserModel) {
         this.id = id;
+        this.identification = identification;
         this.name = name;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -23,12 +29,20 @@ public class UserModel {
         this.rolUserModel = rolUserModel;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(String identification) {
+        this.identification = identification;
     }
 
     public String getName() {
@@ -85,5 +99,20 @@ public class UserModel {
 
     public void setRolUserModel(RolUserModel rolUserModel) {
         this.rolUserModel = rolUserModel;
+    }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", identification='" + identification + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", birthDay=" + birthDay +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", rolUserModel=" + rolUserModel +
+                '}';
     }
 }
