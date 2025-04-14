@@ -37,6 +37,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.8.5'
+
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto
+	implementation("org.springframework.security:spring-security-crypto:6.4.4")
 }
 
 tasks.named('test') {
