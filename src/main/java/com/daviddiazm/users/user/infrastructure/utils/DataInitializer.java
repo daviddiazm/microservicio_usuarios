@@ -47,7 +47,7 @@ public class DataInitializer {
         UserEntity user = userRepository.findById(1L).orElse(null);
 
         if(user == null) {
-            jdbcTemplate.execute("INSERT INTO `user` (`id`, `account_no_expired`, `account_no_locked`, `birth_day`, `credential_no_expired`, `email`, `identification`, `is_enabled`, `last_name`, `name`, `password`, `phone_number`, `rol_id`) VALUES ('1', b'0000', b'0000', '2000-04-01', b'0000', 'admin@email.com', '123456789', b'00000', 'admin', 'admin', '$2a$10$RnqxX1QnJBmAC3l0QFTkQ.EzyzayAELY5sg4Y.HBpjtdG1spMYeYC', '3117672673', '1');");
+            jdbcTemplate.execute("INSERT INTO `user` (`id`, `account_no_expired`, `account_no_locked`, `birth_day`, `credential_no_expired`, `email`, `identification`, `is_enabled`, `last_name`, `name`, `password`, `phone_number`, `rol_id`) VALUES ('1', b'1', b'1', '2000-04-01', b'1', 'admin@email.com', '123456789', b'1', 'admin', 'admin', '$2a$10$RnqxX1QnJBmAC3l0QFTkQ.EzyzayAELY5sg4Y.HBpjtdG1spMYeYC', '3117672673', '1');");
         }
 
     }
