@@ -15,10 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -27,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
         name = InfrastructureConstans.USER_TAG,
         description = "The following endpoints are used to create and retrieve departments"
 )
-@PreAuthorize("denyAll()")
+//@PreAuthorize("denyAll()")
 public class UserController {
 
     //    http://localhost:8081/swagger-ui/index.html
@@ -118,7 +115,15 @@ public class UserController {
 
     )
     @PostMapping("/")
+    @PreAuthorize("hasAuthority('CREATE_USER')")
     ResponseEntity<SaveUserResponse> postUser(@RequestBody SaveUserRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(request));
+    }
+
+    @GetMapping("/")
+//    @PreAuthorize("hasAuthority('READ_HOUSING')")
+    @PreAuthorize("hasRole('admin')")
+    ResponseEntity<String> prueba() {
+        return ResponseEntity.ok().body("hola");
     }
 }
