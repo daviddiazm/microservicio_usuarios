@@ -1,4 +1,4 @@
 package com.daviddiazm.users.user.application.dtos.requests;
 
-public class LoginUserRequest {
+public record LoginUserRequest( String email, String password) {
 }

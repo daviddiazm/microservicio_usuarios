@@ -28,16 +28,16 @@ public class UserEntity {
     private String password;
 
     @Column(name = "is_enabled")
-    private boolean isEnabled;
+    private boolean isEnabled = true;
 
     @Column(name = "account_No_Expired")
-    private boolean accountNoExpired;
+    private boolean accountNoExpired = true;
 
     @Column(name = "account_No_Locked")
-    private boolean accountNoLocked;
+    private boolean accountNoLocked = true;
 
     @Column(name = "credential_No_Expired")
-    private boolean credentialNoExpired;
+    private boolean credentialNoExpired = true;
 
     @ManyToOne
     @JoinColumn(name = "rol_id")

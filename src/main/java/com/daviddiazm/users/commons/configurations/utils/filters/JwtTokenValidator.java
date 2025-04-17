@@ -1,12 +1,12 @@
-package com.daviddiazm.users.user.infrastructure.utils;
+package com.daviddiazm.users.commons.configurations.utils.filters;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.daviddiazm.users.user.infrastructure.utils.JwtUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,10 +19,15 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Collection;
 
-@RequiredArgsConstructor
 public class JwtTokenValidator extends OncePerRequestFilter {
-    private final JwtUtils jwtUtils;
 
+    private JwtUtils jwtUtils;
+
+    public JwtTokenValidator(JwtUtils jwtUtils) {
+        this.jwtUtils = jwtUtils;
+    }
+
+    @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
                                     @NonNull FilterChain filterChain) throws ServletException, IOException {

@@ -121,8 +121,8 @@ public class UserController {
     }
 
     @GetMapping("/")
-    @PreAuthorize("hasAuthority('READ_HOUSING')")
-//    @PreAuthorize("hasRole('admin')")
+//    @PreAuthorize("hasAuthority('READ_HOUSING')")
+    @PreAuthorize("hasRole('admin')")
     ResponseEntity<String> prueba() {
         return ResponseEntity.ok().body("hola");
     }

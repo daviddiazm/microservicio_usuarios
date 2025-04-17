@@ -85,6 +85,7 @@ public class RolUserController {
 
     )
     @PostMapping("/")
+
     ResponseEntity<SaveRolUserResponse> postRolUser(@RequestBody SaveRolUserRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(rolUserService.saveRol(request));
     }
