@@ -7,6 +7,8 @@ import com.daviddiazm.users.user.domain.ports.out.RolUserPersistencePort;
 import com.daviddiazm.users.user.domain.utils.constants.RolUserConstants;
 import com.daviddiazm.users.user.domain.utils.validations.RolUserValidator;
 
+import java.util.List;
+
 public class RolUserUseCase implements RolUserServicePort {
 
     private final RolUserPersistencePort rolUserPersistencePort;
@@ -25,5 +27,10 @@ public class RolUserUseCase implements RolUserServicePort {
             throw new NameAlreadyExistException(RolUserConstants.NAME_ALREADY_EXIST);
         }
         rolUserPersistencePort.saveRolUser(rolUserModel);
+    }
+
+    @Override
+    public List<RolUserModel> getAllRoles() {
+        return rolUserPersistencePort.getAllRoles() ;
     }
 }

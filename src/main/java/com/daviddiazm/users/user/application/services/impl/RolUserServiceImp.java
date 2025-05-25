@@ -1,6 +1,7 @@
 package com.daviddiazm.users.user.application.services.impl;
 
 import com.daviddiazm.users.user.application.dtos.requests.SaveRolUserRequest;
+import com.daviddiazm.users.user.application.dtos.responses.RolUserResponse;
 import com.daviddiazm.users.user.application.dtos.responses.SaveRolUserResponse;
 import com.daviddiazm.users.user.application.mappers.RolUserDtoMapper;
 import com.daviddiazm.users.user.application.services.RolUserService;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -23,4 +25,10 @@ public class RolUserServiceImp implements RolUserService {
         rolUserServicePort.saveRolUser(rolUserDtoMapper.requestToModel(request));
         return new SaveRolUserResponse(RolUserConstants.SAVE_CORRECTLY_MESSAGE, LocalDate.now());
     }
+
+    @Override
+    public List<RolUserResponse> getAllRoles() {
+        return rolUserDtoMapper.modelListToRequestList( rolUserServicePort.getAllRoles());
+    }
+
 }

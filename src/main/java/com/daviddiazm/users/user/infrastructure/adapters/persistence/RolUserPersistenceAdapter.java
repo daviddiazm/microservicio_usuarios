@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -26,5 +28,10 @@ public class RolUserPersistenceAdapter implements RolUserPersistencePort {
     @Override
     public RolUserModel getRolByName(String name) {
         return rolUserEntityMapper.entityToModel(rolUserRepository.getByName(name));
+    }
+
+    @Override
+    public List<RolUserModel> getAllRoles() {
+        return rolUserEntityMapper.entityListToModelList(rolUserRepository.findAll());
     }
 }

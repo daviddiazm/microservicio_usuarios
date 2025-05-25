@@ -1,6 +1,7 @@
 package com.daviddiazm.users.user.infrastructure.endpoints.rest;
 
 import com.daviddiazm.users.user.application.dtos.requests.SaveRolUserRequest;
+import com.daviddiazm.users.user.application.dtos.responses.RolUserResponse;
 import com.daviddiazm.users.user.application.dtos.responses.SaveRolUserResponse;
 import com.daviddiazm.users.user.application.services.RolUserService;
 import com.daviddiazm.users.user.infrastructure.exceptionshandler.ExceptionResponse;
@@ -14,11 +15,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("/api/rol-user")
 @RequiredArgsConstructor
@@ -88,6 +89,12 @@ public class RolUserController {
 
     ResponseEntity<SaveRolUserResponse> postRolUser(@RequestBody SaveRolUserRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(rolUserService.saveRol(request));
+    }
+
+
+    @GetMapping("/")
+    ResponseEntity<List<RolUserResponse>> getAllRoles (  ){
+        return ResponseEntity.ok().body(rolUserService.getAllRoles());
     }
 
 }
