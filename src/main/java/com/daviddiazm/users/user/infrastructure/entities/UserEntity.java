@@ -12,6 +12,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
+@ToString
 public class UserEntity {
 
     @Id
@@ -24,6 +26,18 @@ public class UserEntity {
     private LocalDate birthDay;
     private String email;
     private String password;
+
+    @Column(name = "is_enabled")
+    private boolean isEnabled = true;
+
+    @Column(name = "account_No_Expired")
+    private boolean accountNoExpired = true;
+
+    @Column(name = "account_No_Locked")
+    private boolean accountNoLocked = true;
+
+    @Column(name = "credential_No_Expired")
+    private boolean credentialNoExpired = true;
 
     @ManyToOne
     @JoinColumn(name = "rol_id")
