@@ -14,9 +14,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
@@ -115,14 +116,15 @@ public class UserController {
 
     )
     @PostMapping("/")
-    @PreAuthorize("hasAuthority('CREATE_USER')")
+//    @PreAuthorize("hasAuthority('CREATE_USER')")
     ResponseEntity<SaveUserResponse> postUser(@RequestBody SaveUserRequest request) {
+        System.out.println(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(request));
     }
 
     @GetMapping("/")
 //    @PreAuthorize("hasAuthority('READ_HOUSING')")
-    @PreAuthorize("hasRole('admin')")
+//    @PreAuthorize("hasRole('admin')")
     ResponseEntity<String> prueba() {
         return ResponseEntity.ok().body("hola");
     }

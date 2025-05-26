@@ -25,7 +25,7 @@ public class UserUseCase implements UserServicePort {
         }
         UserValidator.validateName(userModel.getName());
         UserValidator.validateLastName(userModel.getLastName());
-        UserValidator.validateBirthday(userModel.getBirthDay());
+        UserValidator.validateBirthday(userModel.getBirthday());
         UserValidator.validatePhoneNumber(userModel.getPhoneNumber());
         UserValidator.validateEmail(userModel.getEmail());
 

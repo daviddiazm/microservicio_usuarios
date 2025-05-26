@@ -9,7 +9,7 @@ public class UserModel {
     private String name;
     private String lastName;
     private String phoneNumber;
-    private LocalDate birthDay;
+    private LocalDate birthday;
     private String email;
     private String password;
     private RolUserModel rolUserModel;
@@ -17,13 +17,13 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(Long id, String identification, String name, String lastName, String phoneNumber, LocalDate birthDay, String email, String password, RolUserModel rolUserModel) {
+    public UserModel(Long id, String identification, String name, String lastName, String phoneNumber, LocalDate birthday, String email, String password, RolUserModel rolUserModel) {
         this.id = id;
         this.identification = identification;
         this.name = name;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        this.birthDay = birthDay;
+        this.birthday = birthday;
         this.email = email;
         this.password = password;
         this.rolUserModel = rolUserModel;
@@ -69,12 +69,12 @@ public class UserModel {
         this.phoneNumber = phoneNumber;
     }
 
-    public LocalDate getBirthDay() {
-        return birthDay;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public void setBirthDay(LocalDate birthDay) {
-        this.birthDay = birthDay;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public String getEmail() {
@@ -109,7 +109,7 @@ public class UserModel {
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", birthDay=" + birthDay +
+                ", birthday=" + birthday +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", rolUserModel=" + rolUserModel +
